@@ -103,4 +103,6 @@ A simple and responsive **Task List Manager** built with **React**, **Tabulator.
    ```bash
    git clone https://github.com/Sohaib0403/task-list-manager.git
    cd task-list-manager
+2. Vercel link:
+   https://task-list-manager-15onswbf9-sohaib0403s-projects.vercel.app
 
