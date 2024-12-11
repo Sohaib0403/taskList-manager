@@ -1,0 +1,44 @@
+Final Questions
+
+1)	Which solutions did you use for inline editing in the table?
+
+=	Inline editing was achieved by displaying the title and description fields in the table rows
+ as <input> elements. Those input fields used the default Value attribute to display the current values
+  of the task and the handleEdit function used to update the new values to the task's state.
+
+2)	 Describe the process followed to fetch and process the data from the dummy API.
+
+=	In this version, tasks were not fetched from some external API but were instead managed locally with 
+the useState hook. But if we were to fetch tasks from a dummy API, the approach would be the use of the 
+useEffect hook to make an asynchronous call using fetch. The response data would then be processed and 
+stored in the component's state using the setTasks function. For example:
+
+useEffect(() =>
+fetch("https://dummyapi.example.com/tasks")
+    .then((response) => response.json())
+    .then((data) => setTasks(data));
+}, []);
+
+3)	What approach did you use to filter tasks based on status?
+
+=	The status of each task was filtered by maintaining a separate state called filterStatus. A dropdown 
+menu allowed the user to select the desired filter status, and the handleFilterChange function updated 
+the state. The tasks were then dynamically filtered using a condition, checking the selected filter status 
+against each task's status. If the status is set to "All," all tasks were displayed; otherwise, only those 
+matching the selected status are shown.
+
+4)	How did you handle the state of tasks while adding or editing them?
+
+=	The state of tasks was handled by using the useState hook. Upon adding a task, a new task object was 
+added to the existing list of tasks using the setTasks function. The same applied when editing a task a 
+mapping was done through the current list of tasks to update the task that matched the given ID. The 
+handleEdit function ensured that only the relevant task was updated and the rest remained unchanged.
+
+5)	What challenges did you face during development, and how did you overcome them?
+
+	One of the challenges was ensuring that inline editing happens without messing up the table structure. 
+This was achieved by using controlled components and another challenge was providing user feedback in the 
+form of notifications. This was addressed by using react-toastify for success and error messages, enhancing 
+the user experience. Debugging and testing many edge cases, including an empty input field, and rapid changes 
+also required careful validation and proper state management.
+
